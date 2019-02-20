@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light bg-light d-flex justify-content-between">
+  <div>
+    <h3>Simple AirBnB</h3>
+  </div>
+  <div>
+    <%= link_to "Add new flat", flats_path, class: "btn btn-outline-primary" %>
+  </div>
+</nav>
+<div class="container">
+  <h1 class="py-4s">All our Flats(4)</h1>
+  <div class="d-flex justify-content space-between">
+    <% @flats.each do |flat| %>
+      <div class="d-flex flex-column justify-content-between flat-card m-1">
+        <div class="p-2">
+          <h5><%= flat.name %></h5>
+          <p><%= flat.address %></p>
+          <p><i class="fas fa-users"></i><%= flat.number_of_guests %> <i class="fas fa-euro-sign"></i><%= flat.price_per_night %></p>
+        </div>
+        <div class="bg-white p-2">
+          <%= link_to "More Info", flat_path(flat) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
